@@ -8,5 +8,6 @@
 
 int main() {
 	Gui gui;
+	std::srand(std::time(nullptr));
 	gui.start();
 }
