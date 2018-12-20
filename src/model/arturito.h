@@ -6,7 +6,7 @@
 class Arturito: public Entity {
 
 public:
-	void move(int x, int y, boost::numeric::ublas::matrix<std::unique_ptr<Entity> > &board);
+	void move(int x, int y, boost::numeric::ublas::matrix<std::shared_ptr<Entity> > &board);
 };
 
 #endif /* SRC_ARTURITO_H_ */
