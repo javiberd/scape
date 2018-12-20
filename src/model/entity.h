@@ -9,7 +9,7 @@ public:
 
 	virtual ~Entity() {}
 
-	virtual void move(int x, int y, boost::numeric::ublas::matrix<std::unique_ptr<Entity> > &board) = 0;
+	virtual void move(int x, int y, boost::numeric::ublas::matrix<std::shared_ptr<Entity> > &board) = 0;
 };
 
 #endif
