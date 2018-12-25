@@ -1,7 +1,7 @@
 #include "player.h"
 #include "../common/common.h"
 
-void Player::move(Direction direction) {
+void Player::move(Matrix &board, Direction direction) {
 	int xTemp = x;
 	int yTemp = y;
 	switch(direction){
@@ -34,7 +34,7 @@ void Player::move(Direction direction) {
 		yTemp--;
 		break;
 	}
-	if (inMatrix(xTemp, yTemp, length_board)) {
+	if (inMatrix(xTemp, yTemp, board.size1())) {
 		x = xTemp;
 		y = yTemp;
 	}
