@@ -8,6 +8,7 @@
 #include <nana/gui/widgets/button.hpp>
 
 class Gui : public Observer {
+
 private:
 	nana::form form;
 
@@ -16,6 +17,7 @@ public:
 	~Gui() {};
 	void start();
 	void update();
+
 };
 
 #endif /* SCAPE_SRC_GUI_GUI_H_ */

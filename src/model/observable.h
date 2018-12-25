@@ -4,8 +4,8 @@
 #include "observer.h"
 
 class Observable {
-public:
 
+public:
 	Observable() {}
 
 	virtual ~Observable() {}

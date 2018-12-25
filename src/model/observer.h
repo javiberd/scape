@@ -2,6 +2,7 @@
 #define SCAPE_SRC_MODEL_OBSERVER_H_
 
 class Observer {
+
 public:
 	Observer() {}
 
