@@ -1,5 +1,5 @@
-#ifndef SRC_MODEL_OBSERVER_H_
-#define SRC_MODEL_OBSERVER_H_
+#ifndef SCAPE_SRC_MODEL_OBSERVER_H_
+#define SCAPE_SRC_MODEL_OBSERVER_H_
 
 class Observer {
 public:
@@ -10,4 +10,4 @@ public:
 	virtual void update() = 0;
 
 };
-#endif /* SRC_MODEL_OBSERVER_H_ */
+#endif /* SCAPE_SRC_MODEL_OBSERVER_H_ */

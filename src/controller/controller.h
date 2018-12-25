@@ -1,5 +1,5 @@
-#ifndef SRC_CONTROLLER_CONTROLLER_H_
-#define SRC_CONTROLLER_CONTROLLER_H_
+#ifndef SCAPE_SRC_CONTROLLER_CONTROLLER_H_
+#define SCAPE_SRC_CONTROLLER_CONTROLLER_H_
 
 #include "../model/world.h"
 #include "../model/observer.h"
@@ -15,4 +15,4 @@ public:
 	void step(Direction direction);
 };
 
-#endif
+#endif /* SCAPE_SRC_CONTROLLER_CONTROLLER_H_ */

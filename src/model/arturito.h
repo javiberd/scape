@@ -1,5 +1,5 @@
-#ifndef SRC_ARTURITO_H_
-#define SRC_ARTURITO_H_
+#ifndef SCAPE_SRC_MODEL_ARTURITO_H_
+#define SCAPE_SRC_MODEL_ARTURITO_H_
 
 #include "entity.h"
 
@@ -9,4 +9,4 @@ public:
 	void move(int x, int y, boost::numeric::ublas::matrix<std::shared_ptr<Entity> > &board);
 };
 
-#endif /* SRC_ARTURITO_H_ */
+#endif /* SCAPE_SRC_MODEL_ARTURITO_H_ */

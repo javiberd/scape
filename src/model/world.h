@@ -1,5 +1,5 @@
-#ifndef SRC_WORLD_H_
-#define SRC_WORLD_H_
+#ifndef SCAPE_SRC_MODEL_WORLD_H_
+#define SCAPE_SRC_MODEL_WORLD_H_
 
 #include "observable.h"
 #include "player.h"
@@ -18,4 +18,4 @@ public:
 	void addObserver();
 };
 
-#endif
+#endif /* SCAPE_SRC_MODEL_WORLD_H_ */

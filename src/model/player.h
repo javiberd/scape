@@ -1,5 +1,5 @@
-#ifndef SRC_PLAYER_H_
-#define SRC_PLAYER_H_
+#ifndef SCAPE_SRC_MODEL_PLAYER_H_
+#define SCAPE_SRC_MODEL_PLAYER_H_
 
 #include "../common/direction.h"
 #include "entity.h"
@@ -13,4 +13,4 @@ public:
 	void move(Direction direction);
 };
 
-#endif
+#endif /* SCAPE_SRC_MODEL_PLAYER_H_ */

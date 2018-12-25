@@ -1,5 +1,5 @@
-#ifndef SRC_GUI_GUI_H_
-#define SRC_GUI_GUI_H_
+#ifndef SCAPE_SRC_GUI_GUI_H_
+#define SCAPE_SRC_GUI_GUI_H_
 
 #include "../model/observer.h"
 #include "../controller/controller.h"
@@ -18,4 +18,4 @@ public:
 	void update();
 };
 
-#endif /* SRC_GUI_GUI_H_ */
+#endif /* SCAPE_SRC_GUI_GUI_H_ */

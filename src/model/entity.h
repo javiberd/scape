@@ -1,5 +1,5 @@
-#ifndef SRC_ENTITY_H_
-#define SRC_ENTITY_H_
+#ifndef SCAPE_SRC_MODEL_ENTITY_H_
+#define SCAPE_SRC_MODEL_ENTITY_H_
 
 #include <boost/numeric/ublas/matrix.hpp>
 
@@ -12,4 +12,4 @@ public:
 	virtual void move(int x, int y, boost::numeric::ublas::matrix<std::shared_ptr<Entity> > &board) = 0;
 };
 
-#endif
+#endif /* SCAPE_SRC_MODEL_ENTITY_H_ */

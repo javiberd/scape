@@ -1,5 +1,5 @@
-#ifndef SRC_MODEL_OBSERVABLE_H_
-#define SRC_MODEL_OBSERVABLE_H_
+#ifndef SCAPE_SRC_MODEL_OBSERVABLE_H_
+#define SCAPE_SRC_MODEL_OBSERVABLE_H_
 
 #include "observer.h"
 
@@ -16,4 +16,4 @@ public:
 
 };
 
-#endif /* SRC_MODEL_OBSERVABLE_H_ */
+#endif /* SCAPE_SRC_MODEL_OBSERVABLE_H_ */
