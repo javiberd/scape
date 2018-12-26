@@ -2,6 +2,7 @@
 #define SCAPE_SRC_MODEL_OBSERVABLE_H_
 
 #include "observer.h"
+#include <memory>
 
 class Observable {
 
@@ -12,7 +13,7 @@ public:
 
 	virtual void notifyAll() = 0;
 
-	virtual void addObserver() = 0;
+	virtual void addObserver(std::shared_ptr<Observer> observer) = 0;
 
 };
 
