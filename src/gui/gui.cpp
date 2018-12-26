@@ -27,6 +27,6 @@ void Gui::start() {
 	nana::exec();
 }
 
-void Gui::update() {
+void Gui::update(const std::shared_ptr<Player> player, const Matrix &board) {
 
 }

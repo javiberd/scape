@@ -14,9 +14,12 @@ private:
 
 public:
 	Gui();
+
 	~Gui() {};
+
 	void start();
-	void update();
+
+	void update(const std::shared_ptr<Player> player, const Matrix &board) override;
 
 };
 
