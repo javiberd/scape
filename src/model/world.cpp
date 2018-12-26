@@ -26,7 +26,7 @@ bool World::gameOver() {
 
 void World::notifyAll() {
 	for (std::shared_ptr<Observer> o: observers) {
-		(*o).update();
+		(*o).update(player, board);
 	}
 }
 
