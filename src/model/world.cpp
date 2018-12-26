@@ -24,9 +24,11 @@ bool World::gameOver() {
 }
 
 void World::notifyAll() {
-
+	for (std::shared_ptr<Observer> o: observers) {
+		(*o).update();
+	}
 }
 
-void World::addObserver() {
-
+void World::addObserver(std::shared_ptr<Observer> observer) {
+	observers.insert(observer);
 }
