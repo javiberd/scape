@@ -6,7 +6,7 @@
 class Player : public Entity {
 
 public:
-	void move(Matrix &board, Direction direction);
+	void move(Matrix &board, Direction direction) override;
 
 };
 
