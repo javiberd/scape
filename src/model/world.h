@@ -22,17 +22,17 @@ public:
 
 	World(const World& world);
 
-	World(std::shared_ptr<Player> player, int length_board);
+	World(std::shared_ptr<Observer> observer, int length_board);
 
-	void movePlayer(Direction);
+	void movePlayer(Direction direction);
 
 	void moveEntities();
 
 	bool gameOver();
 
-	void notifyAll();
+	void notifyAll() override;
 
-	void addObserver(std::shared_ptr<Observer> observer);
+	void addObserver(std::shared_ptr<Observer> observer) override;
 
 };
 

@@ -5,7 +5,8 @@ World::World(const World &world) {
 	this->player = world.player;
 }
 
-World::World(std::shared_ptr<Player> playerIn, int length_board) : player(playerIn) {
+World::World(std::shared_ptr<Observer> observer, int length_board) {
+	observers.insert(observer);
 	board = Matrix(length_board, length_board);
 }
 
