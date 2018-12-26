@@ -6,7 +6,7 @@
 class Arturito: public Entity {
 
 public:
-	void move(int x, int y, Matrix &board);
+	void move(Matrix &board) override;
 
 };
 
