@@ -1,6 +1,11 @@
 #include "player.h"
 #include "../common/common.h"
 
+Player::Player(int xIn, int yIn) :
+		Entity(xIn, yIn) {
+
+}
+
 void Player::move(Matrix &board, Direction direction) {
 	int xTemp = x;
 	int yTemp = y;
