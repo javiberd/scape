@@ -1,4 +1,5 @@
 #include "world.h"
+#include "../common/common.h"
 
 World::World(const World &world) {
 	this->board = world.board;
@@ -8,6 +9,8 @@ World::World(const World &world) {
 World::World(std::shared_ptr<Observer> observer, int length_board) {
 	observers.insert(observer);
 	board = Matrix(length_board, length_board);
+	player = Player(0, 0);
+	board(length_board - 1, length_board - 1);
 }
 
 void World::movePlayer(Direction direction) {
