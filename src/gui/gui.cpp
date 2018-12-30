@@ -1,6 +1,6 @@
 #include "gui.h"
 
-Gui::Gui() {
+Gui::Gui(Controller &controllerIn) : controller(controllerIn) {
 	// Define a label and display a text.
 	nana::label lab{form, "Hello Luna, te quiero</>"};
 	lab.format(true);

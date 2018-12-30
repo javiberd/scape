@@ -10,10 +10,11 @@
 class Gui : public Observer {
 
 private:
+	Controller &controller;
 	nana::form form;
 
 public:
-	Gui();
+	Gui(Controller &controllerIn);
 
 	~Gui() {};
 
