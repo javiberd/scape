@@ -7,11 +7,10 @@
 class Controller {
 
 private:
-	World world;
-	std::vector<Observer*> observers;
+	World &world;
 
 public:
-	Controller(const World &world, Observer &observer);
+	Controller(World &world);
 
 	void step(Direction direction);
 

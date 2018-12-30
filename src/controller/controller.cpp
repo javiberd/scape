@@ -1,10 +1,10 @@
 #include "controller.h"
 
-Controller::Controller (const World &world, Observer &observer) : world(world) {}
-//Controller::Controller (const World &world, Observer &observer) : world(world), observers() {
-//	this->observers.push_back(&observer);
-//}
+Controller::Controller (World &world) : world(world) {
+
+}
 
 void Controller::step(Direction direction) {
-	this->world.movePlayer(direction);
+	world.movePlayer(direction);
+	world.moveEntities();
 }
