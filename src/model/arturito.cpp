@@ -1,6 +1,10 @@
 #include "arturito.h"
 #include "../common/common.h"
 
+Arturito::Arturito(int xIn, int yIn) : Entity(xIn, yIn) {
+
+}
+
 void Arturito::move(boost::numeric::ublas::matrix<std::shared_ptr<Entity> > &board) {
 	int xAdd, yAdd;
 	do {

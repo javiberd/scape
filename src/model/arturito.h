@@ -6,6 +6,8 @@
 class Arturito: public Entity {
 
 public:
+	Arturito(int xIn, int yIn);
+
 	void move(Matrix &board) override;
 
 };
