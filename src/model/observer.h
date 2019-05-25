@@ -11,7 +11,7 @@ class Observer {
 public:
 	Observer() {}
 
-	virtual ~Observer() {};
+	virtual ~Observer() {}
 
 	virtual void update(const std::shared_ptr<Player> player, const Matrix &board) = 0;
 
