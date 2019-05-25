@@ -1,26 +1,30 @@
 #include "world.h"
+#include "arturito.h"
 #include "../common/common.h"
+
+World::World() {
+	board = Matrix(DEFAULT_BOARD_LENGTH, DEFAULT_BOARD_LENGTH);
+	player = std::make_shared<Player>(Player(0, 0));
+	board(DEFAULT_BOARD_LENGTH - 1, DEFAULT_BOARD_LENGTH - 1) =
+			std::make_shared<Entity>(
+					Arturito(DEFAULT_BOARD_LENGTH - 1, DEFAULT_BOARD_LENGTH - 1));
+}
 
 World::World(const World &world) {
 	this->board = world.board;
 	this->player = world.player;
 }
 
-World::World(std::shared_ptr<Observer> observer, int length_board) {
-	observers.insert(observer);
-	board = Matrix(length_board, length_board);
-	player = Player(0, 0);
-	board(length_board - 1, length_board - 1);
-}
-
 void World::movePlayer(Direction direction) {
 	(*player).move(board, direction);
+	notifyAll();
 }
 
 void World::moveEntities() {
 	for (Matrix::iterator1 it = board.begin1(); it != board.end1(); ++it) {
 		(*it).get()->move(board);
 	}
+	notifyAll();
 }
 
 bool World::gameOver() {
