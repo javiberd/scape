@@ -15,7 +15,6 @@ void Gui::update(const std::shared_ptr<Player> player, const Matrix &board) {
 	// Draw player
 	int x = (*player).getX();
 	int y = (*player).getY();
-	std::cout << "x " << x << "y " << y << std::endl;
 	dw.draw([x, y](nana::paint::graphics& graph) {
 		graph.rectangle(nana::rectangle{50 * y, 50 * x, 49, 49}, true, nana::colors::blue);
 	});
