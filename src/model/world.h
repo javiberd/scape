@@ -13,16 +13,15 @@ typedef boost::numeric::ublas::matrix<std::shared_ptr<Entity> > Matrix;
 class World: public Observable {
 
 private:
+	static const int DEFAULT_BOARD_LENGTH = 10;
 	std::shared_ptr<Player> player;
 	Matrix board;
 	std::set<std::shared_ptr<Observer> > observers;
 
 public:
-	World() {};
+	World();
 
 	World(const World& world);
-
-	World(std::shared_ptr<Observer> observer, int length_board);
 
 	void movePlayer(Direction direction);
 
