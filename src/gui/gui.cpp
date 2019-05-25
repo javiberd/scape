@@ -1,66 +1,23 @@
 #include "gui.h"
+#include <thread>
+
+#include <iostream>
 
 Gui::Gui(Controller &controllerIn) : controller(controllerIn) {
-	// Define a label and display a text.
-	nana::label lab{form, "Hello Luna, te quiero</>"};
-	lab.format(true);
 
-    //Define a button and answer the click event.
-	nana::button btn{form, "Quit"};
-	btn.events().click([&]{
-	        this->form.close();
-	});
-
-	//Layout management
-	form.div("vert <><<><weight=80% text><>><><weight=24<><button><>><>");
-	form["text"]<<lab;
-	form["button"] << btn;
-	form.collocate();
-}
-
-
-void Gui::start() {
-//
-//	nana::drawing dw(form);
-
-//	dw.draw([](nana::paint::graphics& graph) {
-//		graph.rectangle(nana::rectangle{10, 10, 15, 30}, true, nana::colors::red);
-//	});
-
-//	dw.update();
-
-//	int matrix[5][5] = {
-//			0, 1, 0, 1, 0,
-//			1, 1, 1, 0, 1,
-//			0, 1, 0, 1, 0,
-//			1, 1, 1, 0, 1,
-//			0, 1, 0, 1, 0};
-//
-//	for (unsigned int i = 0; i < 5; i++) {
-//			for (unsigned int j = 0; j < 5; j++) {
-//				if (matrix[i][j] == 1) {
-//					dw.draw([i, j](nana::paint::graphics& graph) {
-//						graph.rectangle(nana::rectangle{50 * i, 50 * j, 49, 49}, true, nana::colors::red);
-//					});
-//				}
-//			}
-//		}
-
-	//Show the form
-	form.show();
-
-	//Start to event loop process, it blocks until the form is closed.
-	nana::exec();
 }
 
 void Gui::update(const std::shared_ptr<Player> player, const Matrix &board) {
 	nana::drawing dw(form);
 
+	dw.clear();
+
 	// Draw player
 	int x = (*player).getX();
 	int y = (*player).getY();
+	std::cout << "x " << x << "y " << y << std::endl;
 	dw.draw([x, y](nana::paint::graphics& graph) {
-		graph.rectangle(nana::rectangle{50 * x, 50 * y, 49, 49}, true, nana::colors::blue);
+		graph.rectangle(nana::rectangle{50 * y, 50 * x, 49, 49}, true, nana::colors::blue);
 	});
 
 	// Draw board
@@ -68,9 +25,33 @@ void Gui::update(const std::shared_ptr<Player> player, const Matrix &board) {
 		for (unsigned int j = 0; j < board.size2(); j++) {
 			if (board(i,j) != nullptr) {
 				dw.draw([i, j](nana::paint::graphics& graph) {
-					graph.rectangle(nana::rectangle{50 * i, 50 * j, 49, 49}, true, nana::colors::red);
+					graph.rectangle(nana::rectangle{50 * int(j), 50 * int(i), 49, 49}, true, nana::colors::red);
 				});
 			}
 		}
 	}
+
+	// Events
+	form.events().key_press([this] (const nana::arg_keyboard& ei) {
+		switch (char(ei.key)) {
+			case 'S':
+			this->controller.step(Direction::South);
+			break;
+			case 'W':
+			this->controller.step(Direction::North);
+			break;
+			case 'D':
+			this->controller.step(Direction::East);
+			break;
+			case 'A':
+			this->controller.step(Direction::West);
+			break;
+			default:
+			break;
+		}
+	});
+
+	dw.update();
+	form.show();
+	nana::exec();
 }
