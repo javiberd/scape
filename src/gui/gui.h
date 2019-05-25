@@ -18,8 +18,6 @@ public:
 
 	~Gui() {};
 
-	void start();
-
 	void update(const std::shared_ptr<Player> player, const Matrix &board) override;
 
 };
