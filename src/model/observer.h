@@ -13,7 +13,7 @@ public:
 
 	virtual ~Observer() {}
 
-	virtual void update(const std::shared_ptr<Player> player, const Matrix &board) = 0;
+	virtual void update(const std::shared_ptr<Player> player, const Matrix &board, bool gameOver) = 0;
 
 };
 #endif /* SCAPE_SRC_MODEL_OBSERVER_H_ */
