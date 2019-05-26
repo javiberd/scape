@@ -23,15 +23,22 @@ public:
 
 	World(const World& world);
 
-	void movePlayer(Direction direction);
+	void restart();
 
-	void moveEntities();
-
-	bool gameOver();
+	void step(Direction direction);
 
 	void notifyAll() override;
 
 	void addObserver(std::shared_ptr<Observer> observer) override;
+
+private:
+	void initialize();
+
+	bool gameOver();
+
+	void movePlayer(Direction direction);
+
+	void moveEntities();
 
 };
 

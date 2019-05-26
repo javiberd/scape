@@ -3,11 +3,7 @@
 #include "../common/common.h"
 
 World::World() {
-	board = Matrix(DEFAULT_BOARD_LENGTH, DEFAULT_BOARD_LENGTH);
-	player = std::make_shared<Player>(Player(0, 0));
-	board(DEFAULT_BOARD_LENGTH - 1, DEFAULT_BOARD_LENGTH - 1) =
-			std::make_shared<Entity>(
-					Arturito(DEFAULT_BOARD_LENGTH - 1, DEFAULT_BOARD_LENGTH - 1));
+	initialize();
 }
 
 World::World(const World &world) {
@@ -15,16 +11,37 @@ World::World(const World &world) {
 	this->player = world.player;
 }
 
-void World::movePlayer(Direction direction) {
-	(*player).move(board, direction);
+void World::initialize() {
+	board = Matrix(DEFAULT_BOARD_LENGTH, DEFAULT_BOARD_LENGTH);
+	player = std::make_shared<Player>(Player(0, 0));
+	board(DEFAULT_BOARD_LENGTH - 1, DEFAULT_BOARD_LENGTH - 1) =
+			std::make_shared<Arturito>(
+					Arturito(DEFAULT_BOARD_LENGTH - 1, DEFAULT_BOARD_LENGTH - 1));
+}
+
+void World::restart() {
+	initialize();
 	notifyAll();
 }
 
-void World::moveEntities() {
-	for (Matrix::iterator1 it = board.begin1(); it != board.end1(); ++it) {
-		(*it).get()->move(board);
-	}
+void World::step(Direction direction) {
+	movePlayer(direction);
+	moveEntities();
 	notifyAll();
+}
+
+void World::movePlayer(Direction direction) {
+	(*player).move(board, direction);
+}
+
+void World::moveEntities() {
+	for (Matrix::iterator1 it1 = board.begin1(); it1 != board.end1(); ++it1) {
+		for (Matrix::iterator2 it2 = it1.begin(); it2 != it1.end(); ++it2) {
+			if (*it2 != nullptr) {
+				(*it2).get()->move(board);
+			}
+		}
+	}
 }
 
 bool World::gameOver() {
@@ -33,7 +50,7 @@ bool World::gameOver() {
 
 void World::notifyAll() {
 	for (std::shared_ptr<Observer> o: observers) {
-		(*o).update(player, board);
+		(*o).update(player, board, gameOver());
 	}
 }
 
