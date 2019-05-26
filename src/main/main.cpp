@@ -8,9 +8,8 @@ int main() {
 	// Initialization of main objects
 	World world;
 	Controller controller(world);
-	Gui gui(controller);
-	world.addObserver(std::make_shared<Gui>(gui));
+	Gui gui(controller, world);
 	// This is for updating the graphic view with the
 	// starting board
-	world.notifyAll();
+	controller.start();
 }
