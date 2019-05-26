@@ -10,15 +10,21 @@
 class Gui : public Observer {
 
 private:
+	static const int SQUARE_SIZE = 50;
 	Controller &controller;
 	nana::form form;
+	bool gameOver;
 
 public:
-	Gui(Controller &controllerIn);
+	Gui(Controller &controllerIn, World &world);
 
 	~Gui() {};
 
-	void update(const std::shared_ptr<Player> player, const Matrix &board) override;
+	void update(const std::shared_ptr<Player> player, const Matrix &board, bool gameOver) override;
+
+private:
+	static void drawPlayer(nana::drawing &drawing, const std::shared_ptr<Player> player);
+	static void drawBoardAndEntities(nana::drawing &drawing, const Matrix &board);
 
 };
 
