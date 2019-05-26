@@ -12,6 +12,10 @@ private:
 public:
 	Controller(World &world);
 
+	void start();
+
+	void restart();
+
 	void step(Direction direction);
 
 };
